@@ -13,9 +13,15 @@ const db = mysql.createConnection({
 db.connect((err) => {
     if (err) throw err
     console.log("database connected...")
-    app.get("/", (req, res) => {
-        res.send("OK ROUTE OPEN");
-    })    
+
+    const sql = "SELECT * FROM user"
+    db.query(sql, (err, result) => {
+        const users = JSON.parse(JSON.stringify(result))
+        console.log('hasil database ->', users)
+        app.get("/", (req, res) => {
+            res.send(users)
+        })
+    })
 })
 
 
