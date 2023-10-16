@@ -20,24 +20,23 @@ db.connect((err) => {
     if (err) throw err
     console.log("database connected...")
 
-    const sql = "SELECT * FROM user"
-    db.query(sql, (err, result) => {
-        const users = JSON.parse(JSON.stringify(result))
-        console.log('hasil database ->', users)
-
-        // untuk insert data
-        app.get("/", (req, res) => {
-            // res.send(users)
+    // untuk get data
+    app.get("/", (req, res) => {
+        // res.send(users)
+        const sql = "SELECT * FROM user"
+        db.query(sql, (err, result) => {
+            const users = JSON.parse(JSON.stringify(result))
+            // console.log('hasil database ->', users)
             res.render("index", { users: users, title: "DAFTAR MURID KELAS" })
         })
+    })
 
-        // untuk insert data
-        app.post("/tambah", (req, res) => {
-            const insertSql = `INSERT INTO user (nama, kelas) VALUES ('${req.body.nama}', '${req.body.kelas}');`
-            db.query(insertSql, (err, result) => {
-                if (err) throw err
-                res.redirect("/");
-            })
+    // untuk insert data
+    app.post("/tambah", (req, res) => {
+        const insertSql = `INSERT INTO user (nama, kelas) VALUES ('${req.body.nama}', '${req.body.kelas}');`
+        db.query(insertSql, (err, result) => {
+            if (err) throw err
+            res.redirect("/");
         })
     })
 })
