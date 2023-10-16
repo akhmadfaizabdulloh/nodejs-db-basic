@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 06 Okt 2023 pada 13.46
+-- Waktu pembuatan: 16 Okt 2023 pada 13.16
 -- Versi server: 11.1.2-MariaDB
 -- Versi PHP: 8.2.10
 
@@ -38,7 +38,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama`, `kelas`) VALUES
-(1, 'bagas', 'IF1');
+(1, 'bagas', 'IF1'),
+(2, 'jojo', 'IF2'),
+(3, 'Orycious', 'IF3'),
+(4, 'Jiko', 'IF3'),
+(5, 'Zila', 'IF1');
 
 --
 -- Indexes for dumped tables
@@ -58,7 +62,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
