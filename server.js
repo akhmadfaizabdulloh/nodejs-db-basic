@@ -23,7 +23,7 @@ db.connect((err) => {
         console.log('hasil database ->', users)
         app.get("/", (req, res) => {
             // res.send(users)
-            res.render("index", { users: users, title: "TUTORIAL NODEJS" })
+            res.render("index", { users: users, title: "DAFTAR MURID KELAS" })
         })
     })
 })
